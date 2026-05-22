@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const firstname = document.getElementById("firstname");
   const lastname = document.getElementById("lastname");
   const email = document.getElementById("email");
-  const phone = document.getElementById("phone");
+  const phone = null;
   const password = document.getElementById("pass");
 
   sendOtpButton.addEventListener("click", async function(event) {
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const first_name = firstname.value;
     const last_name = lastname.value;
     const email_ = email.value;
-    const phone_ = phone.value;
+    const phone_ = null;
     const password_ = password.value;
 
     if (!first_name || !last_name || !email_ || !password_) {
