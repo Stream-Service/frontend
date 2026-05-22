@@ -1,7 +1,7 @@
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat        200
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat     200
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat   200
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat   200
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat   200
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat    200
-/api/*      http://INGRESS_IP_PLACEHOLDER/:splat       200
+/auth/*       http://POST_IP_PLACEHOLDER/auth/:splat       200!
+/myapp/*      http://POST_IP_PLACEHOLDER/myapp/:splat      200!
+/compress/*   http://POST_IP_PLACEHOLDER/compress/:splat   200!
+/following/*  http://POST_IP_PLACEHOLDER/following/:splat  200!
+/searching/*  http://POST_IP_PLACEHOLDER/searching/:splat  200!
+/posting/*    http://POST_IP_PLACEHOLDER/posting/:splat    200!
+/streaming/*  http://POST_IP_PLACEHOLDER/streaming/:splat  200!
