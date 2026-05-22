@@ -1,0 +1,10 @@
+
+
+
+
+window.CONFIG = {
+    post : '/api'
+    
+};
+
+ 
