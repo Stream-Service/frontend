@@ -1,10 +1,3 @@
-
-
-
-
 window.CONFIG = {
-    post : '/api'
-    
+    post: ''
 };
-
- 
