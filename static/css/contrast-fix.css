@@ -1,0 +1,468 @@
+/* ============================================================
+   CONTRAST FIX — visible borders, shadows & separation
+   Works on both light and dark surfaces.
+   Keeps existing colors/layout; only adds depth.
+   ============================================================ */
+
+:root {
+  /* Dark-tinted translucent borders → visible on BOTH light and dark bgs */
+  --cf-border: rgba(0, 0, 0, 0.18);
+  --cf-border-strong: rgba(0, 0, 0, 0.32);
+  --cf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.12);
+  --cf-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.14);
+  --cf-shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.18);
+  --cf-ring: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar,
+nav.navbar,
+.navbar.navbar-expand-lg {
+  border-bottom: 1px solid var(--cf-border) !important;
+  box-shadow: var(--cf-shadow-md) !important;
+  position: relative;
+  z-index: 10;
+}
+.navbar .nav-link {
+  border-radius: 6px;
+  transition: background-color .15s ease, box-shadow .15s ease;
+}
+.navbar .nav-link:hover {
+  background: rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 0 0 1px var(--cf-border);
+}
+.navbar .nav-item.active > .nav-link,
+.navbar .nav-link.active {
+  background: rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 0 0 1px var(--cf-border-strong);
+}
+.navbar-brand { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+
+/* ---------- SEARCH / INPUT WRAPS ---------- */
+.form-inline .form-control,
+.search-bar,
+.search-input-wrap input,
+.search-input-wrap {
+  border: 1px solid var(--cf-border) !important;
+  box-shadow: var(--cf-shadow-sm), inset 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 12px;
+}
+.search-bar { /* sticky bar shouldn't have its own border */
+  border: none !important;
+  box-shadow: none !important;
+}
+.search-input-wrap:focus-within {
+  border-color: rgba(216, 9, 33, 0.7) !important;
+  box-shadow: 0 0 0 3px rgba(216, 9, 33, 0.18), var(--cf-shadow-md) !important;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar, aside,
+.left-sidebar, .right-sidebar {
+  border: 1px solid var(--cf-border) !important;
+  border-radius: 12px;
+  box-shadow: var(--cf-shadow-md), var(--cf-ring) !important;
+}
+
+/* ---------- GENERIC CARDS / BOXES ---------- */
+.card, .box, .panel,
+.stat-box, .results,
+.modal-content, .popup-content,
+.profile-modal-content, .uploadPopup,
+.crush_profile_content, .comments-section,
+.video-section {
+  border: 1px solid var(--cf-border) !important;
+  border-radius: 14px;
+  box-shadow: var(--cf-shadow-md), var(--cf-ring) !important;
+  background-clip: padding-box;
+}
+.stat-box { transition: transform .15s ease, box-shadow .15s ease; }
+.stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cf-shadow-lg), var(--cf-ring) !important;
+}
+
+/* ---------- SEARCH RESULTS / RESULT ITEMS ---------- */
+.result-item {
+  border-bottom: 1px solid var(--cf-border) !important;
+}
+.result-item:last-child { border-bottom: none !important; }
+
+/* ---------- SEARCH TABS ---------- */
+.search-tabs {
+  border-bottom: 1px solid var(--cf-border-strong) !important;
+}
+.search-tab-btn {
+  border: 1px solid transparent !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+}
+.search-tab-btn:hover {
+  border-color: var(--cf-border) !important;
+  box-shadow: var(--cf-shadow-md) !important;
+}
+.search-tab-btn.tab-active,
+.search-tab-btn.active {
+  border-color: var(--cf-border-strong) !important;
+  box-shadow: var(--cf-shadow-md) !important;
+}
+
+/* ---------- LOGIN / REGISTER / FORGOT ---------- */
+.login-box, .register-box, .forgot-box {
+  border: 1px solid var(--cf-border-strong) !important;
+  border-radius: 16px;
+  box-shadow: var(--cf-shadow-lg), var(--cf-ring) !important;
+}
+.login-box input, .register-box input, .forgot-box input,
+.input-group input, .uploadRight input, .uploadRight textarea,
+textarea,
+input[type="text"], input[type="email"],
+input[type="password"], input[type="search"] {
+  border: 1px solid var(--cf-border) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 8px;
+}
+.login-box input:focus, .register-box input:focus, .forgot-box input:focus,
+.input-group input:focus, textarea:focus,
+input[type="text"]:focus, input[type="email"]:focus,
+input[type="password"]:focus, input[type="search"]:focus {
+  border-color: rgba(216, 9, 33, 0.75) !important;
+  box-shadow: 0 0 0 3px rgba(216, 9, 33, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+  outline: none;
+}
+
+/* ---------- POSTS / POST CARDS ---------- */
+.post, .post-card, .feed-post,
+.my-posts-header, .video, .video.active {
+  border: 1px solid var(--cf-border) !important;
+  border-radius: 12px;
+  box-shadow: var(--cf-shadow-md), var(--cf-ring) !important;
+  background-clip: padding-box;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.post:hover, .post-card:hover, .feed-post:hover, .video:hover {
+  transform: translateY(-2px);
+  border-color: var(--cf-border-strong) !important;
+  box-shadow: var(--cf-shadow-lg), var(--cf-ring) !important;
+}
+
+/* ---------- BUTTONS ---------- */
+.action-btn, .popup-btn, .clear-btn,
+.profile-subscribe-btn, .crush_subscribe-btn,
+button.btn, .btn {
+  border: 1px solid var(--cf-border-strong) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+  border-radius: 8px;
+  transition: transform .1s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.action-btn:hover, .popup-btn:hover, .clear-btn:hover,
+.profile-subscribe-btn:hover, .crush_subscribe-btn:hover,
+button.btn:hover, .btn:hover {
+  box-shadow: var(--cf-shadow-md) !important;
+  transform: translateY(-1px);
+}
+.action-btn:active, .popup-btn:active, .btn:active {
+  transform: translateY(0);
+  box-shadow: var(--cf-shadow-sm), inset 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ---------- MODALS / OVERLAYS ---------- */
+.overlay, .popup-overlay, .modal2, .profile-modal {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ---------- PROFILE MODAL ELEMENTS ---------- */
+.profile-modal-pic, .crush_popup-profile-pic {
+  border: 2px solid var(--cf-border-strong) !important;
+  box-shadow: var(--cf-shadow-md) !important;
+}
+.profile-nav-links, .crush_nav-links, .stats-row {
+  border-bottom: 1px solid var(--cf-border) !important;
+}
+.profile-nav-active {
+  box-shadow: inset 0 -2px 0 0 #e63946;
+}
+
+/* ---------- AVATAR (search results) ---------- */
+.avatar {
+  border: 2px solid var(--cf-border-strong) !important;
+  box-shadow: var(--cf-shadow-sm) !important;
+}
+
+/* ---------- HIDE EMPTY RESULTS PANEL ---------- */
+.results:empty { display: none !important; }
+
+/* ---------- STRONGER TAB CONTRAST ---------- */
+.search-tab-btn {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid var(--cf-border) !important;
+}
+.search-tab-btn:hover {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: var(--cf-border-strong) !important;
+}
+
+/* ============================================================
+   SEARCH PAGE — user-requested fixes (v4)
+   - Remove outer border/shadow from search input wrap & clear btn
+   - Disable typing/hover/focus effects on the search bar
+   - Neutral hover on result items (replace ugly pale-red)
+   - Cleaner, readable tab colors (idle + active + hover)
+   ============================================================ */
+
+/* 1. Search input wrap: no outer border, no shadow, no focus ring */
+.search-input-wrap,
+.search-input-wrap input,
+.search-input-wrap input[type="text"],
+.search-input-wrap input[type="search"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+.search-input-wrap:focus-within {
+  border: none !important;
+  box-shadow: none !important;
+}
+#searchInput,
+#searchInput:focus,
+#searchInput:hover {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+/* 2. Clear (×) button: no border, no shadow box around it */
+.search-input-wrap .clear-btn,
+.search-input-wrap .clear-btn:hover,
+.search-input-wrap .clear-btn:focus,
+.search-input-wrap .clear-btn:active {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  transform: none !important;
+  outline: none !important;
+}
+
+/* 3. Result item hover — replace pale-red with neutral surface */
+.result-item:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 4. Search tabs — readable colors, no ugly bg in idle state */
+.search-tab-btn {
+  background: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: #444 !important;
+  box-shadow: none !important;
+}
+.search-tab-btn:hover {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+  color: #111 !important;
+  box-shadow: none !important;
+}
+.search-tab-btn.tab-active,
+.search-tab-btn.active {
+  background: #d80921 !important;       /* primary red */
+  border-color: #d80921 !important;
+  color: #ffffff !important;            /* keep text visible when active */
+  box-shadow: 0 4px 10px rgba(216, 9, 33, 0.25) !important;
+}
+.search-tab-btn.tab-active:hover,
+.search-tab-btn.active:hover {
+  background: #b8071c !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   v5 — Visibility & polish fixes
+   ============================================================ */
+
+/* 1. Search bar — give it the white pill look every search bar has */
+.search-input-wrap {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+.search-input-wrap input,
+.search-input-wrap #searchInput {
+  background: #ffffff !important;
+  color: #111 !important;
+}
+.search-input-wrap i.fa-search { color: #d80921 !important; }
+
+/* 2. Left sidebar (my-navbar > nav) icon hover — neutral, not pink */
+my-navbar nav a,
+my-navbar nav a:link,
+my-navbar nav a:visited {
+  color: #333 !important;
+  transition: background-color .15s ease, color .15s ease;
+  border-radius: 10px;
+}
+my-navbar nav a:hover {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #d80921 !important;
+  box-shadow: none !important;
+}
+my-navbar nav a.active {
+  background: #d80921 !important;
+  color: #ffffff !important;
+}
+my-navbar nav a.active:hover {
+  background: #b8071c !important;
+  color: #ffffff !important;
+}
+
+/* 3. Profile popup — solid white card so content is readable */
+.profile-modal-content,
+.crush_profile_content {
+  background: #ffffff !important;
+  color: #111 !important;
+}
+.profile-modal-content h3,
+.profile-modal-content p,
+.profile-modal-content a,
+.crush_profile_content h3,
+.crush_profile_content p,
+.crush_profile_content a {
+  color: #111 !important;
+}
+.profile-modal-content .profile-nav-active,
+.crush_profile_content .crush_nav-active {
+  color: #d80921 !important;
+  border-bottom: 2px solid #d80921 !important;
+}
+
+/* 4. Posts grid — alternating tint so cards don't blur into each other */
+#posts_grid {
+  background: linear-gradient(
+    to right,
+    rgba(216, 9, 33, 0.04) 0%,
+    rgba(216, 9, 33, 0.04) 50%,
+    rgba(0, 0, 0, 0.03) 50%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+  padding: 16px;
+  border-radius: 12px;
+}
+#posts_grid .post:nth-child(odd),
+#posts_grid > div:nth-child(odd) {
+  background: #fff7f8 !important;
+}
+#posts_grid .post:nth-child(even),
+#posts_grid > div:nth-child(even) {
+  background: #ffffff !important;
+}
+
+/* ============================================================
+   v6 — Apply search page pink bg everywhere + colorful popup
+   ============================================================ */
+
+/* Global pink background (matches search.html) on every page */
+html, body {
+  background: #e9d0d0 !important;
+  background-color: #e9d0d0 !important;
+}
+
+/* Update posts grid alt-tinting to fit the pink theme */
+#posts_grid {
+  background: transparent !important;
+  padding: 16px;
+}
+#posts_grid .post:nth-child(odd),
+#posts_grid > div:nth-child(odd) {
+  background: #ffffff !important;
+}
+#posts_grid .post:nth-child(even),
+#posts_grid > div:nth-child(even) {
+  background: #ffe5e5 !important;
+}
+
+/* Profile popup — colorful gradient header & vibrant accents */
+.profile-modal-content,
+.crush_profile_content {
+  background: #ffffff !important;
+  border: 1px solid rgba(216, 9, 33, 0.2) !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 60px rgba(216, 9, 33, 0.25),
+              0 6px 18px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Gradient banner behind the profile intro */
+.profile-modal-content .profile-intro,
+.crush_profile_content .crush_intro {
+  background: linear-gradient(135deg, #45020a 0%, #cc3945 50%, #cb2c3c 100%) !important;
+  padding: 24px !important;
+  border-radius: 18px 18px 0 0 !important;
+  color: #ffffff !important;
+}
+.profile-modal-content .profile-intro h3,
+.profile-modal-content .profile-intro p,
+.crush_profile_content .crush_intro h3,
+.crush_profile_content .crush_intro p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile pic — white ring on the gradient */
+.profile-modal-pic,
+.crush_popup-profile-pic {
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Subscribe button on the gradient: white pill with red text */
+.profile-subscribe-btn,
+.crush_subscribe-btn {
+  background: #ffffff !important;
+  color: #d80921 !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+.profile-subscribe-btn:hover,
+.crush_subscribe-btn:hover {
+  background: #fff0f2 !important;
+  transform: translateY(-1px);
+}
+
+/* Tabs inside popup */
+.profile-modal-content .profile-nav-links,
+.crush_profile_content .crush_nav-links {
+  background: #fff7f8 !important;
+  border-bottom: 1px solid rgba(216, 9, 33, 0.15) !important;
+  padding: 0 16px !important;
+}
+.profile-modal-content .profile-nav-links a,
+.crush_profile_content .crush_nav-links a {
+  color: #666 !important;
+  padding: 14px 18px !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+.profile-modal-content .profile-nav-links a:hover {
+  color: #d80921 !important;
+}
+.profile-modal-content .profile-nav-active {
+  color: #d80921 !important;
+  border-bottom: 3px solid #d80921 !important;
+}
+
+/* Close button */
+.profile-modal-close {
+  background: #ffffff !important;
+  color: #d80921 !important;
+  border-radius: 50% !important;
+  width: 32px; height: 32px;
+  display: flex !important; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  z-index: 2;
+}

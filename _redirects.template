@@ -1,0 +1,7 @@
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat        200
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat     200
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat   200
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat   200
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat   200
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat    200
+/api/*      http://INGRESS_IP_PLACEHOLDER/:splat       200

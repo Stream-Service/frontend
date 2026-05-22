@@ -1,0 +1,305 @@
+/* Navigation links (IDs match your HTML anchors) */
+#crush_videoLink, #crush_postLink, #crush_aboutLink {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#crush_videoLink:hover, #crush_postLink:hover, #crush_aboutLink:hover {
+  background: #f0f0f0;
+  color: #222;
+}
+
+/* Active tab state */
+#crush_videoLink.active, #crush_postLink.active, #crush_aboutLink.active {
+  background: #d41c1f;
+  color: #fff;
+}
+
+/* Sections hidden by default (IDs match your sections) */
+#crush_videoSection, #crush_postSection, #crush_aboutSection {
+  display: none;
+  padding: 20px;
+}
+
+/* Show active section */
+#crush_videoSection.active,
+#crush_postSection.active,
+#crush_aboutSection.active {
+  display: block;
+}
+
+/* Video cards */
+.crush_pop_video-card {
+  display: flex;
+  height: 300px;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  margin: 50px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.crush_pop_video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.crush_pop_left_side {
+  width: 400px;
+}
+
+.crush_pop_video_thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  display: block;
+}
+
+.crush_pop_right_side {
+  flex: 1;
+  padding: 15px;
+}
+
+.crush_description_section {
+  font-size: 14px;
+  color: #333;
+}
+
+.video-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #0a0000;
+}
+
+/* Post cards */
+
+#crush_postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* responsive columns */
+  gap: 16px; /* spacing between cards */
+  padding: 10px;
+}
+.pop_post_card {
+  width: 300px;
+  height: 300px;
+
+
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+
+.pop_post_card :hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+.pop_post_thumbnail_section {
+  width: 300px;
+  height: 450px;
+  overflow: hidden;
+}
+
+.pop_post_thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Intro left (merged into one block, class matches HTML) */
+.crush_intro-left {
+  flex: 0 0 200px;       /* fixed width for profile pic + button */
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.crush_popup-profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.crush_subscribe-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #e60023;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.crush_subscribe-btn:hover {
+  background: #c4001d;
+}
+
+.crush_intro {
+  display: flex;              /* enable flexbox */
+  align-items: flex-start;    /* align items at the top */
+  gap: 20px;                  /* spacing between left and right */
+  padding: 20px;
+}
+
+/* Left side: profile pic + button */
+.crush_intro-left {
+  flex: 0 0 200px;            /* fixed width for left column */
+  display: flex;
+  flex-direction: column;     /* stack image and button vertically */
+  align-items: center;
+  gap: 10px;
+}
+
+.crush_popup-profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;         /* circular profile pic */
+  object-fit: cover;
+}
+
+
+
+/* Intro right (class matches HTML) */
+.crush_intro-right {
+  flex: 1;               /* take remaining space */
+  min-width: 250px;      /* ensures it doesn't shrink too small */
+}
+
+.crush_intro-right h3 {
+  margin: 0 0 10px;
+}
+
+.crush_intro-right p {
+  margin: 0 0 10px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  display: -webkit-box;        /* required for WebKit browsers */
+  display: box;                /* legacy fallback */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;       /* Chrome, Safari, Edge */
+  line-clamp: 3;               /* standardized property (limited support) */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Navigation container (class matches HTML) */
+.crush_nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.crush_nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.crush_nav-links a.active {
+  color: #e60023;
+  border-bottom: 2px solid #e60023;
+  padding-bottom: 4px;
+}
+
+/* Content container (class matches HTML) */
+.crush_profile_content {
+  padding: 20px;
+  height: 400px;
+  overflow-y: auto; /* scrollable */
+  background: #fff;
+}
+
+/* Section visibility (classes already used in HTML) */
+.video, .post, .about {
+  display: none;
+}
+
+.video.active, .post.active, .about.active {
+  display: block;
+}
+
+
+
+
+.modal2 {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      width: 4000px;
+      height: 70%;
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.30);
+
+  flex-direction: row;
+    }
+    .video-section {
+      flex: 2; background: #000;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+    }
+    .video-section video { width: 100%; height: 80%; object-fit: cover; }
+    .video-actions { margin-top: 10px; display: flex; gap: 15px; }
+    .comments-section {
+      flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9;
+    }
+    .comment {
+      padding: 8px; margin-bottom: 10px;
+      background: #fff; border-radius: 5px; border: 1px solid #ddd;
+    }
+
+    .action-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border: none; border-radius: 6px;
+      font-size: 16px; cursor: pointer;
+      background: #f0f0f0; color: #333;
+      transition: all 0.2s ease;
+    }
+
+
+    .action-btn:hover { background: #e0e0e0; transform: scale(1.05); }
+    #likeBtn { background: #e6f7e6; color: #2e7d32; }
+    #dislikeBtn { background: #fdecea; color: #c62828; }

@@ -1,0 +1,200 @@
+/* ========================
+   Forgot Password - Red Theme
+   ======================== */
+
+:root {
+  --primary-red: #d80921;
+  --dark-red: #b5071b;
+  --light-red: #ff3344;
+  --pale-red: #ffe5e5;
+  --bg-white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #666666;
+  --shadow-red: rgba(216, 9, 33, 0.20);
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--pale-red) 0%, #fff 50%, var(--pale-red) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ========================
+   Forgot Box
+   ======================== */
+.forgot-box {
+  background: var(--bg-white);
+  padding: 45px 40px;
+  border-radius: 20px;
+  box-shadow: 0 28px 80px rgba(216, 9, 33, 0.25), 0 12px 36px rgba(0, 0, 0, 0.14);
+  border: 1px solid rgba(216, 9, 33, 0.2);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.forgot-box h2 {
+  margin-bottom: 28px;
+  color: var(--primary-red);
+  font-size: 1.7em;
+  font-weight: 700;
+  position: relative;
+}
+
+.forgot-box h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  border-radius: 3px;
+}
+
+/* ========================
+   Form
+   ======================== */
+.forgot-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.forgot-box p {
+  color: var(--text-muted);
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ========================
+   Input Groups
+   ======================== */
+.input-group {
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  padding-bottom: 10px;
+}
+
+.input-group input,
+.input-group button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group input {
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 1em;
+  border: 2px solid #eee;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 4px rgba(216, 9, 33, 0.1);
+  background: white;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+}
+
+.input-group button {
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1em;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(216, 9, 33, 0.25);
+}
+
+.input-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(216, 9, 33, 0.35);
+}
+
+/* ========================
+   Message Display
+   ======================== */
+#messageDisplay {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.9em;
+  display: none;
+}
+
+#messageDisplay.success,
+#messageDisplay.error,
+#messageDisplay.info {
+  display: block;
+  background: var(--pale-red);
+  color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+}
+
+/* ========================
+   Links
+   ======================== */
+.forgot-box a {
+  display: inline-block;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: var(--primary-red);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95em;
+  transition: color 0.3s ease;
+}
+
+.forgot-box a:hover {
+  color: var(--dark-red);
+  text-decoration: underline;
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media (max-width: 480px) {
+  .forgot-box {
+    padding: 35px 25px;
+  }
+
+  .forgot-box h2 {
+    font-size: 1.4em;
+  }
+
+  .input-group input,
+  .input-group button {
+    padding: 14px 16px;
+  }
+}

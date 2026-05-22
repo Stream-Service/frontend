@@ -1,0 +1,144 @@
+/* ============================================================
+   StreamHub Unified Design System — High-Contrast Dark Theme
+   ============================================================ */
+
+:root {
+  /* ==========================================================
+     BACKGROUNDS (4 distinct contrast layers)
+     ========================================================== */
+  --bg-page:        #0c0c18;
+  --bg-app:         #121225;
+  --bg-surface:     #181830;
+  --bg-card:        #222244;
+  --bg-hover:       #2d2d55;
+  --bg-active:      #3a3a6e;
+  --bg-surface-2:   #181830;
+  --bg-surface-3:   #181830;
+  --bg-overlay:     rgba(8, 8, 20, 0.88);
+  --bg-input:       #1a1a33;
+
+  /* ==========================================================
+     BORDERS (clearly visible at each level)
+     ========================================================== */
+  --border:         #2e2e55;
+  --border-hi:      #3d3d70;
+  --border-hover:   #525288;
+  --border-focus:   #e63946;
+  --border-subtle:  #1e1e35;
+  --border-light:   #3d3d70;
+
+  /* ==========================================================
+     BRAND — Primary (Red)
+     ========================================================== */
+  --primary:           #e63946;
+  --primary-hover:     #ff4d5a;
+  --primary-active:    #c92a37;
+  --primary-light:     #ff8a93;
+  --primary-bg:        rgba(230, 57, 70, 0.12);
+
+  /* Accent — Blue */
+  --accent:            #3b82f6;
+  --accent-hover:      #60a5fa;
+  --accent-light:      #93c5fd;
+  --accent-bg:         rgba(59, 130, 246, 0.12);
+
+  /* Secondary — Amber/Gold */
+  --secondary:         #f59e0b;
+  --secondary-hover:   #fbbf24;
+  --secondary-light:   #fcd34d;
+
+  /* ==========================================================
+     TEXT (4 distinct levels, high contrast)
+     ========================================================== */
+  --text-heading:      #ffffff;
+  --text-primary:      #e2e4f0;
+  --text-secondary:    #9b9dc8;
+  --text-muted:        #6c6e99;
+  --text-placeholder:  #4a4c77;
+  --text-disabled:     #3a3c60;
+  --text-inverse:      #0c0c18;
+
+  /* ==========================================================
+     SEMANTIC COLORS
+     ========================================================== */
+  --live:       #f87171;
+  --online:     #34d399;
+  --warning:    #fbbf24;
+  --info:       #60a5fa;
+  --viewers:    #f472b6;
+  --subs:       #fb923c;
+
+  --success:     var(--online);
+  --success-bg:  rgba(52, 211, 153, 0.12);
+  --error:       var(--live);
+  --error-bg:    rgba(248, 113, 113, 0.12);
+  --warning-bg:  rgba(251, 191, 36, 0.12);
+  --info-bg:     rgba(96, 165, 250, 0.12);
+
+  /* ==========================================================
+     SHADOWS — cool, dark shadows for depth
+     ========================================================== */
+  --color-shadow:    rgba(0, 0, 0, 0.55);
+  --shadow-xs:       0 1px 2px  var(--color-shadow);
+  --shadow-sm:       0 2px 6px  var(--color-shadow);
+  --shadow-md:       0 4px 16px var(--color-shadow), 0 2px 6px var(--color-shadow);
+  --shadow-lg:       0 8px 32px var(--color-shadow), 0 4px 12px var(--color-shadow);
+  --shadow-xl:       0 16px 48px var(--color-shadow), 0 8px 20px var(--color-shadow);
+
+  /* ==========================================================
+     SPECIAL EFFECTS
+     ========================================================== */
+  --glass-bg:    rgba(24, 24, 48, 0.85);
+  --glass-border:rgba(62, 62, 112, 0.40);
+
+  /* ==========================================================
+     LEGACY ALIASES (backward compatibility)
+     ========================================================== */
+  --primary-red:  var(--primary);
+  --dark-red:     #b5071b;
+  --light-red:    var(--primary-light);
+  --pale-red:     #2a1a1e;
+  --soft-red:     #1f1518;
+  --bg-white:     var(--bg-surface);
+  --text-dark:    var(--text-heading);
+  --shadow-red:   rgba(230, 57, 70, 0.25);
+  --shadow-dark:  rgba(0, 0, 0, 0.55);
+}
+
+/* ============================================================
+   GLOBAL BASELINE APPLICATION
+   ============================================================ */
+
+html {
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hi);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}

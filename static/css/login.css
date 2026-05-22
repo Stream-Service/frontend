@@ -1,0 +1,304 @@
+/* ========================
+   Login Page - Red Theme
+   ======================== */
+:root {
+  --primary-red: #d80921;
+  --dark-red: #b5071b;
+  --light-red: #ff3344;
+  --pale-red: #ffe5e5;
+  --bg-white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #666666;
+  --shadow-red: rgba(216, 9, 33, 0.15);
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--pale-red) 0%, #fff 50%, var(--pale-red) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ========================
+   Login Box
+   ======================== */
+.login-box {
+  background: var(--bg-white);
+  padding: 45px 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(216, 9, 33, 0.15);
+  border: 1px solid rgba(216, 9, 33, 0.2);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.login-box h2 {
+  margin-bottom: 30px;
+  color: var(--primary-red);
+  font-size: 1.8em;
+  font-weight: 700;
+  position: relative;
+}
+
+.login-box h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  border-radius: 3px;
+}
+
+/* ========================
+   Input Group
+   ======================== */
+.input-group {
+  margin: 12px 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.input-group input,
+.input-group button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group input {
+  padding: 16px 20px;
+  border-radius: 12px;
+  font-size: 1em;
+  border: 2px solid #eee;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 4px rgba(216, 9, 33, 0.1);
+  background: white;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+}
+
+.input-group button {
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(216, 9, 33, 0.25);
+}
+
+.input-group button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(216, 9, 33, 0.35);
+}
+
+/* ========================
+   Links
+   ======================== */
+.login-box p {
+  margin-top: 24px;
+  font-size: 0.95em;
+  color: var(--text-muted);
+}
+
+.login-box a {
+  color: var(--primary-red);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login-box a:hover {
+  color: var(--dark-red);
+  text-decoration: underline;
+}
+
+.forgot-password {
+  text-align: right;
+  margin: 8px 0 18px;
+  padding: 0 10px;
+}
+
+.forgot-password a {
+  font-size: 0.9em;
+  color: var(--primary-red);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: var(--dark-red);
+  text-decoration: underline;
+}
+
+/* ========================
+   Status
+   ======================== */
+#status {
+  margin-top: 16px;
+  font-size: 0.9em;
+  display: none;
+}
+
+#status.error {
+  display: block;
+  color: var(--primary-red);
+  background: var(--pale-red);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* ========================
+   Error Popup Modal
+   ======================== */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+}
+
+.popup-overlay.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.popup-content {
+  background: #ffffff;
+  padding: 40px 35px 32px;
+  border-radius: 20px;
+  text-align: center;
+  /* red accent bar on top — the key visual upgrade */
+  border-top: 5px solid var(--primary-red);
+  box-shadow:
+    0 20px 60px rgba(216, 9, 33, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 360px;
+  width: 90%;
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.88) translateY(-12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Icon circle */
+.popup-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.popup-icon.error {
+  background: linear-gradient(135deg, var(--pale-red) 0%, #fff5f5 100%);
+  border: 2px solid #ffb3b3;
+}
+
+.popup-icon.error i {
+  font-size: 2em;
+  color: var(--primary-red);
+}
+
+/* Heading */
+.popup-content h3 {
+  margin: 0 0 10px;
+  color: var(--text-dark);
+  font-size: 1.35em;
+  font-weight: 700;
+}
+
+/* Message */
+.popup-content p {
+  margin: 0 0 26px;
+  color: var(--text-muted);
+  font-size: 0.93em;
+  line-height: 1.55;
+}
+
+/* Button */
+.popup-btn {
+  padding: 14px 44px;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(216, 9, 33, 0.3);
+}
+
+.popup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(216, 9, 33, 0.42);
+}
+
+.popup-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(216, 9, 33, 0.25);
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 35px 25px;
+  }
+
+  .login-box h2 {
+    font-size: 1.5em;
+  }
+
+  .input-group input,
+  .input-group button {
+    padding: 14px 16px;
+  }
+
+  .popup-content {
+    padding: 32px 24px 26px;
+  }
+}
+
+

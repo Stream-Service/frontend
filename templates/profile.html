@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Page</title>
+  <script src="/static/js/base.js" defer></script>
+  <link rel="stylesheet" href="/static/css/profile.css">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <script src="/static/js/config.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    
+  </style>
+  <link rel="stylesheet" href="/static/css/contrast-fix.css">
+</head>
+<body>
+  <my-topbar></my-topbar>
+  <my-navbar></my-navbar>
+  <bottom-navbar></bottom-navbar>
+
+  <div id="uploadOverlay" class="overlay">
+      <div class="uploadPopup">
+        <!-- Left side -->
+        <div class="uploadLeft">
+          <h2>Preview Area</h2>
+          <p>Your image preview will appear here.</p>
+        </div>
+
+        <!-- Right side -->
+        <div class="uploadRight">
+          <form id="uploadForm">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter title">
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter description"></textarea>
+
+            <label for="image">Select Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="uploadOverlay2" class="overlay">
+      <div class="uploadPopup">
+        <!-- Left side -->
+        <div class="uploadLeft">
+          <h2>Preview Area</h2>
+          <p>Your image preview will appear here.</p>
+        </div>
+
+        <!-- Right side -->
+        <div class="uploadRight">
+          <form id="uploadForm2">
+            <label for="title">Title</label>
+            <input type="text" id="videoTitle" name="title" placeholder="Enter title">
+
+            <label for="description">Description</label>
+            <textarea id="videoDescription" name="description" placeholder="Enter description"></textarea>
+
+            <label for="video">Select Image</label>
+            <input type="file" id="videoInput" name="video" accept="videos/*">
+
+            <button type="submit">Upload Video</button>
+          </form>
+          <p id="status"></p>
+        </div>
+      </div>
+    </div>
+
+  <div id="profileArena">
+    <!-- Left Side (70%) -->
+    <div id="storyBoard">
+      <h2>Main Content Area</h2>
+
+      <!-- Stats Boxes -->
+      <div class="stats-container">
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-title">Total Videos</div>
+            <div class="stat-value" id="videoCount">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-title">Total Posts</div>
+            <div class="stat-value" id="postCount">0</div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-box full-width">
+            <div class="stat-title">Total Views</div>
+            <div class="stat-value" id="viewCount">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side (30%) -->
+    <div id="sideShowcase">
+      <div id="portraitFrame">
+        <img src='' alt="User Photo" id="roundPortrait">
+        <i class="fas fa-pencil-alt" id="editIcon"></i>
+        <input type="file" id="fileInput" accept="image/*">
+      </div>
+
+      <div id="identityCard">
+        <h3 id="usr-id"> </h3>
+        <p id="email">Email: NO DATA AVAILABLE</p>
+         
+        <p>Joined: 2026</p>
+      </div>
+
+      <div id="bioScroll">
+        <h3>About</h3>
+        <p id="bioText">Loading description...</p>
+        <i class="fas fa-pencil-alt" id="bioEditIcon"></i>
+        <textarea id="bioTextarea"></textarea>
+        <button id="saveBioBtn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/profile.js"></script>
+</body>
+</html>

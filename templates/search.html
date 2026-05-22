@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Search | StreamHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="/static/js/config.js"></script>
+  <script src="/static/js/base.js"></script>
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/feed.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #e9d0d0;
+      --panel: #ffe5e5;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #d80921;
+      --border: #ffcccc;
+      --primary-red: #d80921;
+      --dark-red: #b5071b;
+      --light-red: #ff3344;
+      --pale-red: #3d2424;;
+      --bg-white: #ffffff;
+      --shadow-red: rgba(216, 9, 33, 0.15);
+      --shadow-dark: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .search-page {
+      max-width: 700px;
+      margin: 90px auto 0;
+      padding: 24px;
+    }
+
+    .search-bar {
+      position: sticky;
+      top: 80px;
+      z-index: 10;
+      background: var(--bg);
+      padding-bottom: 16px;
+    }
+
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-white);
+      border: 2px solid var(--pale-red);
+      border-radius: 16px;
+      padding: 14px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px var(--shadow-red);
+    }
+
+    .search-input-wrap:focus-within {
+      border-color: var(--primary-red);
+      box-shadow: 0 6px 20px var(--shadow-red);
+    }
+
+    .search-input-wrap i {
+      color: var(--primary-red);
+      font-size: 1.2rem;
+    }
+
+    .search-input-wrap input {
+      flex: 1;
+      font-size: 1rem;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+
+    .search-input-wrap input::placeholder {
+      color: var(--muted);
+    }
+
+    .search-input-wrap .clear-btn {
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.3s ease;
+    }
+
+    .search-input-wrap .clear-btn:hover {
+      color: var(--primary-red);
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status i {
+      color: var(--primary-red);
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    /* 🔹 NEW TAB COMPONENT STYLING */
+    .search-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0 8px 0;
+  border-bottom: 2px solid var(--pale-red);
+  padding-bottom: 8px;
+}
+.search-tab-btn {
+  flex: 1;                /* ✅ each tab takes equal width */
+  text-align: center;     /* ✅ center the text */
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+    .search-tab-btn:hover {
+      color: var(--primary-red);
+      background: var(--pale-red);
+    }
+
+    .search-tab-btn.tab-active {
+      color: var(--bg-white);
+      background: var(--primary-red);
+      box-shadow: 0 4px 10px var(--shadow-red);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .results {
+      margin-top: 16px;
+      background: var(--bg-white);
+      border: 1px solid var(--pale-red);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px var(--shadow-red);
+    }
+
+    .result-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--pale-red);
+      transition: all 0.3s ease;
+    }
+
+    .result-item:last-child {
+      border-bottom: none;
+    }
+
+    .result-item:hover {
+      background: var(--pale-red);
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+      border: 2px solid var(--pale-red);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .item-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .item-title {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .item-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .item-subtitle i {
+      color: var(--primary-red);
+    }
+
+    .empty-state, .error-state {
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-state i, .error-state i {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      opacity: 0.4;
+      color: var(--primary-red);
+    }
+
+    .empty-state h3, .error-state h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .loading {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--primary-red);
+    }
+
+    .loading i {
+      font-size: 2rem;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .search-page {
+        margin-top: 75px;
+        padding: 16px;
+      }
+
+      .result-item {
+        padding: 14px 16px;
+      }
+
+      .avatar {
+        width: 42px;
+        height: 42px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/static/css/contrast-fix.css">
+</head>
+<body>
+  <my-topbar></my-topbar>
+  <my-navbar></my-navbar>
+  <bottom-navbar></bottom-navbar>
+
+  <div id="uploadOverlay" class="overlay">
+    <div class="uploadPopup">
+      <div class="uploadLeft">
+        <h2>Preview Area</h2>
+        <p>Your image preview will appear here.</p>
+      </div>
+      <div class="uploadRight">
+        <form id="uploadForm">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Enter title">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" placeholder="Enter description"></textarea>
+          <label for="image">Select Image</label>
+          <input type="file" id="image" name="image" accept="image/*">
+          <button type="submit">Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="uploadOverlay2" class="overlay">
+    <div class="uploadPopup">
+      <span class="close-upload" id="closeUpload2">&times;</span>
+      <div class="uploadLeft">
+        <h2>Preview Area</h2>
+        <p>Your video preview will appear here.</p>
+      </div>
+      <div class="uploadRight">
+        <form id="uploadForm2">
+          <label for="videoTitle">Title</label>
+          <input type="text" id="videoTitle" name="title" placeholder="Enter title">
+          <label for="videoDescription">Description</label>
+          <textarea id="videoDescription" name="description" placeholder="Enter description"></textarea>
+          <label for="videoInput">Select Video</label>
+          <input type="file" id="videoInput" name="video" accept="video/*">
+          <button type="submit">Upload Video</button>
+        </form>
+        <p id="status"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-page">
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <i class="fas fa-search"></i>
+        <input id="searchInput" type="text" placeholder="Search for users..." autocomplete="off" />
+        <span class="clear-btn" id="clearSearch"><i class="fas fa-times"></i></span>
+      </div>
+      
+      <!-- 🔹 NEW: TABS CONTAINER RIGHT BELOW SEARCH BAR -->
+      <div class="search-tabs">
+         
+        <button id="tabFollowers" class="search-tab-btn">Followers</button>
+        <button id="tabFollowing" class="search-tab-btn">Following</button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </div>
+
+    <div id="results" class="results" aria-live="polite"></div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="profile-modal">
+    <div class="profile-modal-content">
+      <span class="profile-modal-close" id="closeProfileModal">&times;</span>
+      <div class="profile-intro">
+        <div class="profile-intro-left">
+          <img src="" id="profileModalPic" alt="Profile Picture" class="profile-modal-pic">
+          <button class="profile-subscribe-btn" id="profileSubscribeBtn">Subscribe</button>
+        </div>
+        <div class="profile-intro-right">
+          <h3>About</h3>
+          <p id="profileModalDesc"></p>
+        </div>
+      </div>
+      <div class="profile-nav-links">
+        <a id="profileVideoLink" class="profile-nav-active">Video</a>
+        <a id="profilePostLink">Post</a>
+        <a id="profileAboutLink">About</a>
+      </div>
+      <div class="profile-content">
+        <div id="profileVideoSection" class="profile-section-active">
+          <h3>Videos</h3>
+          <div id="profileVideoGrid"></div>
+        </div>
+        <div id="profilePostSection" class="profile-section">
+          <h3>Posts</h3>
+          <div id="profilePostsGrid"></div>
+        </div>
+        <div id="profileAboutSection" class="profile-section"></div>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/search.js"></script>
+</body>
+</html>

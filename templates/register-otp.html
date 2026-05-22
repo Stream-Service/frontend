@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP | SocialApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/register.css">
+  <script src="/static/js/config.js"></script>
+  <script src="/static/js/base.js"></script>
+  <link rel="stylesheet" href="/static/css/contrast-fix.css">
+</head>
+<body>
+  <div class="register-box">
+    <h2>Verify Your Email</h2>
+    <p style="color: #666; margin-bottom: 25px;">We've sent an OTP to your email.<br>Please enter it below.</p>
+    <p id="userEmail" style="color: #d80921; font-weight: 600; margin-bottom: 20px;"></p>
+    <form action="" id="otpform" method="POST">
+      <div class="input-group">
+        <input type="text" id="otp" name="otp" placeholder="Enter 6-digit OTP" maxlength="6" required>
+      </div>
+      <div class="input-group">
+        <button type="submit" id="verify_otp_button">Verify & Register</button>
+      </div>
+    </form>
+    <p>Didn't receive OTP? <a href="#" id="resendLink">Resend</a></p>
+    <p><a href="./register.html">Go Back</a></p>
+  </div>
+
+  <script src="/static/js/register-otp.js"></script>
+</body>
+</html>

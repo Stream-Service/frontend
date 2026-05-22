@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | SocialApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="./static/js/config.js"></script>
+</head>
+<body>
+
+  <!-- Brand Panel (desktop only) -->
+  <div class="brand-panel">
+    <div class="brand-content">
+      <div class="brand-logo">
+        <i class="fas fa-rocket"></i>
+        <span>SocialApp</span>
+      </div>
+      <h1>Connect with the world.</h1>
+      <p>Share your moments, discover new people, and build meaningful connections in a space designed for you.</p>
+    </div>
+  </div>
+
+  <!-- Error Popup -->
+  <div id="errorPopup" class="popup-overlay">
+    <div class="popup-content">
+      <div class="popup-icon error">
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <h3>Login Failed</h3>
+      <p id="errorMessage">Invalid credentials. Please try again.</p>
+      <button class="popup-btn" id="closeErrorPopup">Try Again</button>
+    </div>
+  </div>
+
+  <!-- Login Box -->
+  <div class="form-section">
+  <div class="login-box">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Sign in to access your account</p>
+
+    <!-- Email -->
+    <div class="input-group">
+      <label for="login_username">Email Address</label>
+      <div class="input-wrap">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="login_username" placeholder="you@example.com" required>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="input-group">
+      <label for="login_pass">Password</label>
+      <div class="input-wrap">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="login_pass" placeholder="Enter your password" required>
+      </div>
+    </div>
+
+    <!-- Remember Me & Forgot Password -->
+    <div class="remember-forgot">
+      <label>
+        <input type="checkbox" checked>
+        Remember me
+      </label>
+      <a href="./templates/forgot_password.html">Forgot Password?</a>
+    </div>
+
+    <!-- Login Button -->
+    <div class="input-group">
+      <button id="login_button">
+        <i class="fas fa-sign-in-alt"></i>
+        Sign In
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <p class="footer-text">
+      New here? <a href="./templates/register.html">Create an account</a>
+    </p>
+
+    <div id="status"></div>
+  </div>
+  </div>
+
+  <script src="./static/js/base.js"></script>
+  <script src="./static/js/login.js"></script>
+</body>
+</html>

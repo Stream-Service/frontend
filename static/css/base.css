@@ -1,0 +1,308 @@
+/* ========================
+   Base Styles - Red Theme
+   ======================== */
+
+:root {
+  --primary-red: #d80921;
+  --dark-red: #b5071b;
+  --light-red: #ff3344;
+  --pale-red: #ffe5e5;
+  --soft-red: #fdecea;
+  --bg-white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #666666;
+  --shadow-red: rgba(216, 9, 33, 0.20);
+  --shadow-dark: rgba(0, 0, 0, 0.18);
+}
+
+body {
+  background-color: #f5f5f8;
+}
+
+/* ========================
+   Navigation Bar (Sidebar)
+   ======================== */
+my-navbar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: var(--bg-white);
+  padding: 15px 10px;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 2px solid rgba(216, 9, 33, 0.15);
+  z-index: 1500;
+}
+
+my-navbar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+my-navbar a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 1.1em;
+  padding: 12px 18px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+my-navbar a:hover {
+  background: var(--pale-red);
+  color: var(--primary-red);
+}
+
+my-navbar a.active {
+  background: var(--primary-red);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px var(--shadow-red);
+}
+
+/* ========================
+   Top Bar
+   ======================== */
+.skyline-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  box-shadow: 0 3px 15px var(--shadow-red);
+  z-index: 2000;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: white;
+}
+
+.brand-badge i {
+  font-size: 1.5em;
+}
+
+.skyline-links {
+  display: flex;
+  gap: 25px;
+}
+
+.skyline-links a {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.skyline-links a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.logout-badge a {
+  color: white;
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.logout-badge a:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ========================
+   Bottom Navigation (Mobile)
+   ======================== */
+.bottom-navbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5000;
+  background: var(--bg-white);
+  padding: 8px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.plus-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  color: #fff;
+  font-size: 28px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 20px var(--shadow-red);
+  transition: all 0.3s ease;
+}
+
+.plus-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px var(--shadow-red);
+}
+
+/* ========================
+   Content Area
+   ======================== */
+#profileArena,
+.feed_box {
+  margin-top: 80px;
+  margin-left: 90px;
+  padding: 25px;
+}
+
+/* ========================
+   Overlay & Popup
+   ======================== */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadPopup {
+  background: var(--bg-white);
+  width: 85%;
+  max-width: 900px;
+  display: flex;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.uploadLeft {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.uploadLeft h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.uploadLeft p {
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.uploadRight {
+  flex: 1.2;
+  padding: 30px;
+}
+
+.uploadRight form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.uploadRight label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.uploadRight input,
+.uploadRight textarea {
+  padding: 14px 16px;
+  font-size: 1em;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.uploadRight input:focus,
+.uploadRight textarea:focus {
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 4px var(--shadow-red);
+  outline: none;
+}
+
+.uploadRight button {
+  padding: 14px;
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-red);
+}
+
+.uploadRight button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-red);
+}
+
+/* ========================
+   Responsive
+   ======================== */
+@media (max-width: 768px) {
+  my-navbar {
+    display: none;
+  }
+
+  #profileArena,
+  .feed_box {
+    margin-left: 0;
+    margin-top: 75px;
+    padding: 15px;
+  }
+
+  .skyline-links {
+    display: none;
+  }
+
+  .uploadPopup {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .uploadLeft {
+    padding: 30px;
+  }
+}

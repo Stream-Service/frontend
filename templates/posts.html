@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/static/js/base.js" defer></script>
+    <link rel="stylesheet" href="/static/css/posts.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/feed.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="/static/js/config.js"></script>
+    <title>Document</title>
+  <link rel="stylesheet" href="/static/css/contrast-fix.css">
+</head>
+<body>
+    <my-topbar></my-topbar>
+    <my-navbar></my-navbar>
+    <bottom-navbar></bottom-navbar>
+    <div id="uploadOverlay" class="overlay">
+      <div class="uploadPopup">
+        <!-- Left side -->
+        <div class="uploadLeft">
+          <h2>Preview Area</h2>
+          <p>Your image preview will appear here.</p>
+        </div>
+
+        <!-- Right side -->
+        <div class="uploadRight">
+          <form id="uploadForm">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Enter title">
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter description"></textarea>
+
+            <label for="image">Select Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="uploadOverlay2" class="overlay">
+      <div class="uploadPopup">
+        <!-- Left side -->
+        <div class="uploadLeft">
+          <h2>Preview Area</h2>
+          <p>Your image preview will appear here.</p>
+        </div>
+
+        <!-- Right side -->
+        <div class="uploadRight">
+          <form id="uploadForm2">
+            <label for="title">Title</label>
+            <input type="text" id="videoTitle" name="title" placeholder="Enter title">
+
+            <label for="description">Description</label>
+            <textarea id="videoDescription" name="description" placeholder="Enter description"></textarea>
+
+            <label for="video">Select Image</label>
+            <input type="file" id="videoInput" name="video" accept="videos/*">
+
+            <button type="submit">Upload Video</button>
+          </form>
+          <p id="status"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="posts_grid"></div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="profile-modal">
+    <div class="profile-modal-content">
+      <span class="profile-modal-close" id="closeProfileModal">&times;</span>
+
+      <div class="profile-intro">
+        <div class="profile-intro-left">
+          <img src="" id="profileModalPic" alt="Profile Picture" class="profile-modal-pic">
+          <button class="profile-subscribe-btn" id="profileSubscribeBtn">Subscribe</button>
+        </div>
+        <div class="profile-intro-right">
+          <h3>About</h3>
+          <p id="profileModalDesc"></p>
+        </div>
+      </div>
+
+      <div class="profile-nav-links">
+        <a id="profileVideoLink" class="profile-nav-active">Video</a>
+        <a id="profilePostLink">Post</a>
+        <a id="profileAboutLink">About</a>
+      </div>
+
+      <div class="profile-content">
+        <div id="profileVideoSection" class="profile-section-active">
+          <h3>Videos</h3>
+          <div id="profileVideoGrid"></div>
+        </div>
+        <div id="profilePostSection" class="profile-section">
+          <h3>Posts</h3>
+          <div id="profilePostsGrid"></div>
+        </div>
+        <div id="profileAboutSection" class="profile-section">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/posts.js"></script>
+</body>
+</html>
